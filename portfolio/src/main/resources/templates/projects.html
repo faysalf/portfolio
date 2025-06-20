@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Projects</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/about}">About Me</a>
+    <a th:href="@{/projects}">Projects</a>
+    <a th:href="@{/photos}">Photos</a>
+    <a th:href="@{/contact}">Contact</a>
+</nav>
+
+<div class="container">
+    <h2>Projects</h2>
+    <ul class="projects-list">
+        <li th:each="project : ${projects}">
+            <h3 th:text="${project.title}">Project Title</h3>
+            <p th:text="${project.description}">Project description</p>
+            <p th:text="${project.technologies}">Tech Stack</p>
+            <a th:href="${project.repoUrl}" target="_blank">Source Code</a>
+            <a th:if="${project.liveUrl}" th:href="${project.liveUrl}" target="_blank" style="margin-left: 1em;">Live Demo</a>
+            <hr/>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
